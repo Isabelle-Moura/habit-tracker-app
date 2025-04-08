@@ -17,7 +17,7 @@ const habitService = {
     }
   },
 
-/*
+  /*
   PAREI AQUI: a função GET está dando UNATHORIZED, mesmo com o token correto.
 */
 
@@ -25,10 +25,11 @@ const habitService = {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch("http://127.0.0.1:5000/habits", {
+        method: "GET", // Especificar o método explicitamente
         headers: {
+          "Content-Type": "application/json",
           Authorization: token ? `Bearer ${token}` : "",
         },
-        mode: "no-cors",
       });
       if (!response.ok) throw new Error("Failed to fetch habits");
       return await response.json();
@@ -40,12 +41,15 @@ const habitService = {
   markHabitAsCompleted: async (habitId) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://127.0.0.1:5000/habits/${habitId}/complete`, {
-        method: "POST",
-        headers: {
-          Authorization: token ? `Bearer ${token}` : "",
-        },
-      });
+      const response = await fetch(
+        `http://127.0.0.1:5000/habits/${habitId}/complete`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: token ? `Bearer ${token}` : "",
+          },
+        }
+      );
       if (!response.ok) throw new Error("Failed to mark habit as completed");
       return await response.json();
     } catch (error) {
