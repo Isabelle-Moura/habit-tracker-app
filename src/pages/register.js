@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
+import "./auth.css"; // Mesmo CSS para Login e Register
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -27,31 +28,31 @@ function Register() {
   return (
     <div className="auth-container">
       <h2>Register</h2>
-      <form onSubmit={handleRegister}>
+      <form onSubmit={handleRegister} className="auth-form">
         <input
           type="text"
-          placeholder="Username"
+          placeholder="Choose a username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
         />
         <input
           type="email"
-          placeholder="Email"
+          placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Create a password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Register</button>
+        <button type="submit" className="auth-btn">Register</button>
       </form>
-      <p>
+      <p className="auth-link">
         Already have an account? <a href="/login">Login here</a>
       </p>
     </div>

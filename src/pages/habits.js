@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import habitService from "../services/habitService.js";
 import { toast } from "react-toastify";
+import "./habits.css"; // Importe o CSS que vamos criar
 
 function Habits() {
   const [habits, setHabits] = useState([]);
@@ -50,43 +51,61 @@ function Habits() {
   };
 
   return (
-    <div className="App">
-      <h1>Habit Tracker</h1>
-      <button onClick={() => {
-        localStorage.removeItem("token");
-        navigate("/login");
-      }}>Logout</button>
+    <div className="habits-container">
+      <header className="header">
+        <h1>Habit Tracker</h1>
+        <button className="logout-btn" onClick={() => {
+          localStorage.removeItem("token");
+          navigate("/login");
+        }}>
+          Logout
+        </button>
+      </header>
 
-      <form onSubmit={handleCreateHabit}>
-        <input
-          type="text"
-          placeholder="Habit Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <select value={frequency} onChange={(e) => setFrequency(e.target.value)}>
-          <option value="daily">Daily</option>
-          <option value="weekly">Weekly</option>
-        </select>
-        <button type="submit">Create Habit</button>
-      </form>
+      <section className="create-habit">
+        <form onSubmit={handleCreateHabit}>
+          <div className="input-group">
+            <input
+              type="text"
+              placeholder="Add a new habit..."
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+            <select value={frequency} onChange={(e) => setFrequency(e.target.value)}>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+            </select>
+          </div>
+          <button type="submit" className="create-btn">Create Habit</button>
+        </form>
+      </section>
 
-      <h2>Your Habits</h2>
-      {habits.length === 0 ? (
-        <p>No habits yet. Create one above!</p>
-      ) : (
-        <ul>
-          {habits.map((habit) => (
-            <li key={habit._id}>
-              {habit.name} ({habit.frequency}) - Completed: {habit.completed_dates.length} times
-              <button onClick={() => handleMarkAsCompleted(habit._id)}>
-                Mark as Completed
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
+      <section className="habits-list">
+        <h2>Your Habits</h2>
+        {habits.length === 0 ? (
+          <p className="no-habits">No habits yet. Start by adding one above!</p>
+        ) : (
+          <ul>
+            {habits.map((habit) => (
+              <li key={habit._id} className="habit-item">
+                <span className="habit-info">
+                  {habit.name} <span className="frequency">({habit.frequency})</span>
+                  <span className="completed-count">
+                    - Completed: {habit.completed_dates.length} times
+                  </span>
+                </span>
+                <button
+                  onClick={() => handleMarkAsCompleted(habit._id)}
+                  className="complete-btn"
+                >
+                  Mark Done
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
     </div>
   );
 }

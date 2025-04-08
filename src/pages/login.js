@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import "./auth.css"; // CSS compartilhado para Login e Register
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -30,24 +31,24 @@ function Login() {
   return (
     <div className="auth-container">
       <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} className="auth-form">
         <input
           type="email"
-          placeholder="Email"
+          placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Enter your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Login</button>
+        <button type="submit" className="auth-btn">Login</button>
       </form>
-      <p>
+      <p className="auth-link">
         Don't have an account? <a href="/register">Register here</a>
       </p>
     </div>
