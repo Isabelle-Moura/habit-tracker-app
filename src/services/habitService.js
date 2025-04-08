@@ -1,5 +1,5 @@
 const habitService = {
-  createHabit: async (name, frequency) => {
+  createHabit: async (name, frequency, category) => {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch("http://127.0.0.1:5000/habits", {
@@ -8,7 +8,7 @@ const habitService = {
           "Content-Type": "application/json",
           Authorization: token ? `Bearer ${token}` : "",
         },
-        body: JSON.stringify({ name, frequency }),
+        body: JSON.stringify({ name, frequency, category }),
       });
       if (!response.ok) throw new Error("Failed to create habit");
       return await response.json();
@@ -32,6 +32,23 @@ const habitService = {
         },
       });
       if (!response.ok) throw new Error("Failed to fetch habits");
+      return await response.json();
+    } catch (error) {
+      throw error.message;
+    }
+  },
+
+  getHabitStats: async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch("http://127.0.0.1:5000/habits/stats", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token ? `Bearer ${token}` : "",
+        },
+      });
+      if (!response.ok) throw new Error("Failed to fetch stats");
       return await response.json();
     } catch (error) {
       throw error.message;
