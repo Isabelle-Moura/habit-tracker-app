@@ -17,10 +17,6 @@ const habitService = {
     }
   },
 
-  /*
-  PAREI AQUI: a função GET está dando UNATHORIZED, mesmo com o token correto.
-*/
-
   getHabits: async () => {
     try {
       const token = localStorage.getItem("token");

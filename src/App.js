@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Register from "./pages/register.js";
 import Login from "./pages/login.js";
 import Habits from "./pages/habits.js";
+import Dashboard from "./pages/dashboard.js";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/habits" element={<Habits />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route index path="/" element={<Login />} />
       </Routes>
     </Router>
