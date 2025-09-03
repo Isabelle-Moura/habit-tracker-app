@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# 📜 Habit Tracker Application - Project Documentation 📜
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🔷 Introduction
 
-## Available Scripts
+This is the front-end part of the Habit Tracker application, built with React.
 
-In the project directory, you can run:
+It is responsible for the user interface, allowing interaction with the backend API to manage habits, register users, and visualize progress.
 
-### `npm start`
+## 🔷 Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The project was built using the following technologies:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🔹 Core Libraries
 
-### `npm test`
+**React**: The main library for building the user interface.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**React DOM**: Responsible for rendering components to the DOM.
 
-### `npm run build`
+**React Router DOM**: For managing navigation between the application's pages.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Axios**: An HTTP client for making requests to the backend API.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**React Toastify**: For displaying notifications and feedback messages to the user.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Recharts**: For creating interactive charts on the dashboard.
 
-### `npm run eject`
+**ESLint and Prettier**: Tools for maintaining code consistency and quality.
+
+## 🔷 Project Setup
+
+To set up and run the project locally, follow the steps below.
+
+### 1. Install Dependencies
+
+First, navigate to the project's root folder (where the package.json file is located) and install all the necessary dependencies using the Node Package Manager (NPM):
+
+```
+npm install
+```
+
+### 2. Start the Development Server
+
+After installing the dependencies, you can start the React development server. Run the following command in the terminal:
+
+```
+npm start
+```
+
+This command will start the application on a local server, usually at **http://localhost:3000**, and will automatically open it in your default browser.
+
+Your **package.json** file already has a proxy configuration that directs all application requests to your backend, running on **http://127.0.0.1:5000**.
+
+Make sure your backend is active and running before starting the frontend for everything to work correctly.
+
+## 🔷 Execution Scripts
+
+Here are the scripts available in your package.json and what they do:
+
+- **npm start**: Starts the development server.
+
+- **npm run build**: Creates an optimized version of the application for production.
+
+- **npm test**: Runs the unit tests configured in the project.
+
+- **npm run eject**: Removes the react-scripts dependency and copies all configurations into your project, giving you full control over them.
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
 If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature.

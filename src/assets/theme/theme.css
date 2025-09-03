@@ -1,0 +1,32 @@
+:root {
+  --purple-primary: #6b48ff;
+  --purple-light: #a68bff;
+  --green-primary: #34c759;
+  --green-hover: #7ed957;
+  --orange-primary: #ff9500;
+  --orange-light: #ffb347;
+  --background-light: #f4f4f4;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --blue-detail: #007bff;
+  --blue-hover: #0056b3;
+
+  --font-xsm: 14px;
+  --font-sm: 16px;
+  --font-md: 20px;
+  --font-lg: 24px;
+  --font-lrg: 29px;
+  --font-xl: 32px;
+  --font-xxl: 48px;
+
+  --weight-light: 100;
+  --weight-regular: 200;
+  --weight-middle: 300;
+  --weight-medium: 400;
+  --weight-bold: 600;
+  --weight-midBold: 700;
+  --weight-extraBold: 800;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+}

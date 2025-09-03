@@ -1,35 +1,16 @@
-/* Definindo variáveis globais */
-:root {
-  --purple-primary: #6b48ff; /* Roxo principal */
-  --purple-light: #a68bff; /* Roxo claro */
-  --green-primary: #34c759; /* Verde principal */
-  --green-hover: #7ed957; /* Verde para hover */
-  --orange-primary: #ff9500; /* Laranja principal */
-  --orange-light: #ffb347; /* Laranja claro */
-  --background-light: #f4f4f4; /* Cinza claro para fundo */
-  --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra suave */
-  --blue-detail: #007bff; /* Azul para links e botões */
-  --blue-hover: #0056b3; /* Azul escuro para hover */
-}
-
-* {
-  font-family: "Montserrat", sans-serif;
-}
-
 .App,
 .auth-container {
-  font-family: Arial, sans-serif;
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  background-color: var(--background-light); /* Usando cinza claro */
+  background-color: var(--background-light);
   min-height: 100vh;
 }
 
 h1,
 h2 {
   text-align: center;
-  color: var(--purple-primary); /* Títulos em roxo */
+  color: var(--purple-primary);
 }
 
 form {
@@ -51,7 +32,7 @@ button {
 }
 
 button {
-  background-color: var(--green-primary); /* Botões principais em verde */
+  background-color: var(--green-primary);
   color: var(--background-light);
   border: none;
   cursor: pointer;
@@ -59,7 +40,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--green-hover); /* Hover em verde mais claro */
+  background-color: var(--green-hover);
 }
 
 ul {
@@ -79,14 +60,12 @@ li {
 }
 
 li button {
-  background-color: var(
-    --orange-primary
-  ); /* Botões dentro da lista em laranja */
+  background-color: var(--orange-primary);
   color: var(--background-light);
 }
 
 li button:hover {
-  background-color: var(--orange-light); /* Hover em laranja claro */
+  background-color: var(--orange-light);
 }
 
 .auth-container p {
@@ -94,11 +73,11 @@ li button:hover {
 }
 
 .auth-container a {
-  color: var(--blue-detail); /* Links em azul */
+  color: var(--blue-detail);
   text-decoration: none;
 }
 
 .auth-container a:hover {
   text-decoration: underline;
-  color: var(--purple-light); /* Hover dos links em roxo claro */
+  color: var(--purple-light);
 }

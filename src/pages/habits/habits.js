@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import habitService from "../services/habitService.js";
+import habitService from "../../services/habit-service.js";
 import { toast } from "react-toastify";
 import "./habits.css";
 

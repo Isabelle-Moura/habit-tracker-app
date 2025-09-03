@@ -1,8 +1,7 @@
 import axios from "axios";
 
-// Cria uma instância do axios com configurações padrão
 const api = axios.create({
-  baseURL: "http://127.0.0.1:5000", // URL base do seu backend
+  baseURL: process.env.BACKEND_URL, 
   headers: {
     "Content-Type": "application/json",
   },
@@ -19,7 +18,7 @@ api.interceptors.request.use((config) => {
   api.interceptors.response.use(
     (response) => response,
     (error) => {
-      console.error("Erro na requisição:", error.response?.data || error.message);
+      console.error("Error at request:", error.response?.data || error.message);
       return Promise.reject(error);
     }
   );

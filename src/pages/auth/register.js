@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
-import "./auth.css"; // Mesmo CSS para Login e Register
+import "./auth.css"; 
 
 function Register() {
   const [username, setUsername] = useState("");
