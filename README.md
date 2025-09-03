@@ -1,4 +1,4 @@
-# 📜 Habit Tracker Application - Project Documentation 📜
+# 📜 Habit Tracker App - Project Documentation 📜
 
 ## 🔷 Introduction
 
