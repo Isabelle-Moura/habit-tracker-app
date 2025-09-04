@@ -1,4 +1,4 @@
-import api from './api';
+import api from './api.js';
 
 /**
  * Functions of service for the authentication routes (register and login).

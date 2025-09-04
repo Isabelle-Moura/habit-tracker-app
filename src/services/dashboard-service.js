@@ -1,4 +1,4 @@
-import api from './api';
+import api from './api.js';
 
 /**
  * Function of service for the dashboard route.

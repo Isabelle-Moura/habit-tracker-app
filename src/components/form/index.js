@@ -1,7 +1,7 @@
 import React from "react";
-import Heading from "../heading";
-import Input from "../input";
-import Button from "../button";
+import Heading from "../heading/index.js";
+import Input from "../input/index.js";
+import Button from "../button/index.js";
 
 function BaseForm({
   title,

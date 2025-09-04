@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getDashboardData } from "../../services/dashboard-service.js";
@@ -12,7 +12,7 @@ function Dashboard() {
   const [dashboardData, setDashboardData] = useState(null);
   const navigate = useNavigate();
 
-  const fetchDashboardData = async () => {
+  const fetchDashboardData = useCallback(async () => {
     try {
       const data = await getDashboardData();
       setDashboardData(data.data);
@@ -24,11 +24,11 @@ function Dashboard() {
         toast.error("Failed to fetch dashboard data");
       }
     }
-  };
+  }, [navigate]);
 
   useEffect(() => {
     fetchDashboardData();
-  }, []);
+  }, [fetchDashboardData]);
 
   if (!dashboardData) return <div>Loading...</div>;
 

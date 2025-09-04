@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import {
   createHabit,
   getHabits,
   markHabitAsCompleted,
-} from "../../services/habit-service";
+} from "../../services/habit-service.js";
 import "./habits.css";
-import HabitCard from "../../components/card/habit-card";
+import HabitCard from "../../components/card/habit-card/index.js";
+import Heading from "../../components/heading/index.js";
 
 function Habits() {
   const [habits, setHabits] = useState([]);
@@ -16,7 +17,7 @@ function Habits() {
   const [category, setCategory] = useState("Uncategorized");
   const navigate = useNavigate();
 
-  const fetchHabits = async () => {
+  const fetchHabits = useCallback(async () => {
     try {
       const habitsData = await getHabits();
       setHabits(habitsData);
@@ -28,11 +29,11 @@ function Habits() {
         toast.error("Failed to fetch habits");
       }
     }
-  };
+  }, [navigate]);
 
   useEffect(() => {
     fetchHabits();
-  }, []);
+  }, [fetchHabits]);
 
   const handleCreateHabit = async (e) => {
     e.preventDefault();

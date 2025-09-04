@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
+import "./layout.css";
+import Heading from "../heading/index.js";
 
-function Layout({ title, children }) {
+function Layout() {
   const [darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate();
 
@@ -13,7 +15,7 @@ function Layout({ title, children }) {
   return (
     <div className={`app-container ${darkMode ? "dark-mode" : ""}`}>
       <header className="header">
-        <h1>{title}</h1>
+        <Heading level={1}>Habit Tracker</Heading>
         <div>
           <button
             className="toggle-btn"
@@ -27,7 +29,7 @@ function Layout({ title, children }) {
         </div>
       </header>
 
-      <main>{children}</main>
+      <main><Outlet/></main>
     </div>
   );
 }

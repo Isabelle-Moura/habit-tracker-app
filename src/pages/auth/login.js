@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./auth.css"; 
-import { login } from "../../services/auth-service";
-import BaseForm from "../../components/form";
+import { login } from "../../services/auth-service.js";
+import BaseForm from "../../components/form/index.js";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -16,7 +16,7 @@ function Login() {
       const response = await login({ email, password });
       localStorage.setItem("token", response.token);
       toast.success("Login made successfully!");
-      navigate("/habits");
+      navigate("/dashboard");
     } catch (error) {
       toast.error(error.response?.data?.error || "Login failed");
     }
