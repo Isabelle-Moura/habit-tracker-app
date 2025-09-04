@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import "./auth.css"; // CSS compartilhado para Login e Register
+import "./auth.css"; 
+import { login } from "../../services/auth-service";
+import BaseForm from "../../components/form";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -11,47 +13,28 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://127.0.0.1:5000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-      if (!response.ok) throw new Error("Login failed");
-      const data = await response.json();
-      localStorage.setItem("token", data.token);
-      toast.success("Login successful!");
+      const response = await login({ email, password });
+      localStorage.setItem("token", response.token);
+      toast.success("Login made successfully!");
       navigate("/habits");
     } catch (error) {
-      toast.error(error.message || "Login failed");
+      toast.error(error.response?.data?.error || "Login failed");
     }
   };
 
   return (
-    <div className="auth-container">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin} className="auth-form">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Enter your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" className="auth-btn">Login</button>
-      </form>
-      <p className="auth-link">
-        Don't have an account? <a href="/register">Register here</a>
-      </p>
-    </div>
+    <BaseForm
+      title="Login"
+      fields={[
+        { type: "email", placeholder: "Enter your email", value: email, onChange: setEmail },
+        { type: "password", placeholder: "Enter your password", value: password, onChange: setPassword },
+      ]}
+      onSubmit={handleLogin}
+      submitLabel="Login"
+      linkText="Don't have an account?"
+      linkHref="/register"
+      linkLabel="Register here"
+    />
   );
 }
 

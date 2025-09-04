@@ -6,20 +6,23 @@ import Register from "./pages/auth/register.js";
 import Login from "./pages/auth/login.js";
 import Habits from "./pages/habits/habits.js";
 import Dashboard from "./pages/dashboard/dashboard.js";
+import Layout from "./components/layout/layout.js";
 import "./App.css";
 
 function App() {
   return (
-      <Router>
-        <ToastContainer />
-        <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+    <Router>
+      <ToastContainer />
+      <Routes>
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route element={<Layout />}>
           <Route path="/habits" element={<Habits />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route index path="/" element={<Login />} />
-        </Routes>
-      </Router>
+        </Route>
+        <Route index path="/" element={<Login />} />
+      </Routes>
+    </Router>
   );
 }
 
