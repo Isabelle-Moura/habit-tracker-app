@@ -1,0 +1,643 @@
+/* =========================================================
+   THEME (Design Tokens)
+   ========================================================= */
+:root {
+  /* Colors */
+  --purple-primary: #6b48ff;
+  --purple-light: #a68bff;
+  --green-primary: #34c759;
+  --green-hover: #7ed957;
+  --orange-primary: #ff9500;
+  --orange-light: #ffb347;
+  --blue-detail: #007bff;
+  --blue-hover: #0056b3;
+
+  /* Backgrounds & Shadows */
+  --background-light: #f4f4f4;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+
+  /* Fonts */
+  --font-xsm: 14px;
+  --font-sm: 16px;
+  --font-md: 20px;
+  --font-lg: 24px;
+  --font-lrg: 29px;
+  --font-xl: 32px;
+  --font-xxl: 48px;
+
+  /* Font Weights */
+  --weight-light: 100;
+  --weight-regular: 200;
+  --weight-middle: 300;
+  --weight-medium: 400;
+  --weight-bold: 600;
+  --weight-midBold: 700;
+  --weight-extraBold: 800;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* =========================================================
+     RESET & GLOBALS
+     ========================================================= */
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background-light);
+  color: var(--text-dark, #333);
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: var(--purple-primary);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: var(--font-sm);
+}
+
+input,
+select,
+button {
+  padding: 10px;
+  font-size: var(--font-sm);
+}
+
+/* =========================================================
+     AUTH SECTION
+     ========================================================= */
+.auth-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: var(--background-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-container h2 {
+  color: var(--purple-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.auth-form {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-form input {
+  padding: 12px;
+  border: 2px solid var(--purple-light);
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.auth-form input:focus {
+  border-color: var(--purple-primary);
+}
+
+.auth-btn {
+  background: var(--green-primary);
+  color: var(--white);
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.auth-btn:hover {
+  background: var(--green-hover);
+}
+
+.auth-link {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--text-dark);
+  font-size: 1rem;
+}
+
+.auth-link a {
+  color: var(--orange-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-link a:hover {
+  color: var(--orange-hover);
+  text-decoration: underline;
+}
+
+/* =========================================================
+     DASHBOARD SECTION
+     ========================================================= */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: var(--background-light);
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  color: var(--purple-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.header div {
+  display: flex;
+  gap: 10px;
+}
+
+.toggle-btn {
+  background: var(--purple-light);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background: var(--purple-primary);
+}
+
+.logout-btn {
+  background: var(--orange-primary);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: var(--orange-hover);
+}
+
+/* Overview */
+.overview {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  margin-bottom: 30px;
+}
+
+.overview h2 {
+  color: var(--purple-primary);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  text-align: center;
+}
+
+.stat-card p {
+  color: var(--text-dark);
+  font-size: 1.1rem;
+}
+
+.stat-card span {
+  color: var(--green-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Pending Habits */
+.pending-habits {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  margin-bottom: 30px;
+}
+
+.pending-habits h2 {
+  color: var(--purple-primary);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.pending-habits li {
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  padding: 10px;
+  border-bottom: 1px solid var(--purple-light);
+}
+
+/* Performance */
+.performance {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  margin-bottom: 30px;
+}
+
+.performance h2 {
+  color: var(--purple-primary);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.performance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.habit-card {
+  padding: 15px;
+  background: var(--background-light);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.habit-card p {
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.stars {
+  color: var(--orange-primary);
+  font-size: 1.2rem;
+}
+
+.performance > p {
+  margin-top: 15px;
+  color: var(--text-dark);
+}
+
+.performance > p span {
+  color: var(--green-primary);
+  font-weight: 600;
+}
+
+/* Charts */
+.charts {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  margin-bottom: 30px;
+}
+
+.charts h2 {
+  color: var(--purple-primary);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  margin-bottom: 30px;
+}
+
+.chart-container h3 {
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+/* Insights */
+.insights {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  margin-bottom: 30px;
+}
+
+.insights h2 {
+  color: var(--purple-primary);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.insights p {
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.insights span {
+  color: var(--green-primary);
+  font-weight: 600;
+}
+
+.add-habit-btn {
+  background: var(--green-primary);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.add-habit-btn:hover {
+  background: var(--green-hover);
+}
+
+/* =========================================================
+     HABITS SECTION
+     ========================================================= */
+.habits-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: var(--background-light);
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Badges Section */
+.badges-section {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.badges-section h3 {
+  color: var(--purple-primary);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.badges-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.badges-list li {
+  background: var(--green-primary);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 1rem;
+}
+
+/* Create Habit Form */
+.create-habit form {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+}
+
+input,
+select {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid var(--purple-light);
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--purple-primary);
+}
+
+.create-btn {
+  background: var(--green-primary);
+  color: var(--white);
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.create-btn:hover {
+  background: var(--green-hover);
+}
+
+/* Habits List */
+.habits-list h2 {
+  color: var(--purple-primary);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.no-habits {
+  text-align: center;
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.habit-item {
+  background: var(--white);
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.habit-item:hover {
+  transform: translateY(-2px);
+}
+
+.habit-info {
+  color: var(--text-dark);
+  font-size: 1.1rem;
+}
+
+.frequency {
+  color: var(--purple-light);
+  font-weight: 500;
+}
+
+.category {
+  color: var(--orange-primary);
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.completed-count {
+  color: var(--green-primary);
+  font-weight: 600;
+}
+
+.complete-btn {
+  background: var(--orange-primary);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.complete-btn:hover {
+  background: var(--orange-hover);
+}
+
+/* =========================================================
+     MODAL
+     ========================================================= */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  width: 400px;
+  max-width: 90%;
+}
+
+.modal h3 {
+  color: var(--purple-primary);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal input,
+.modal select {
+  padding: 12px;
+  border: 2px solid var(--purple-light);
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.modal input:focus,
+.modal select:focus {
+  border-color: var(--purple-primary);
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.cancel-btn {
+  background: var(--orange-primary);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: var(--orange-hover);
+}
+
+/* =========================================================
+     DARK MODE OVERRIDES
+     ========================================================= */
+.dashboard-container.dark-mode,
+.habits-container.dark-mode {
+  background: var(--dark-background, #1c1c1c);
+  color: var(--dark-text, #f4f4f4);
+}
+
+.dark-mode .overview,
+.dark-mode .pending-habits,
+.dark-mode .performance,
+.dark-mode .charts,
+.dark-mode .insights,
+.dark-mode .badges-section,
+.dark-mode .create-habit form,
+.dark-mode .habit-item,
+.dark-mode .modal {
+  background: var(--dark-white, #2a2a2a);
+}
+
+.dark-mode .stat-card p,
+.dark-mode .pending-habits li,
+.dark-mode .habit-info,
+.dark-mode .performance > p,
+.dark-mode .chart-container h3,
+.dark-mode .insights p {
+  color: var(--dark-text, #e0e0e0);
+}

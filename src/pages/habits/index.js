@@ -6,21 +6,20 @@ import {
   getHabits,
   markHabitAsCompleted,
 } from "../../services/habit-service.js";
-import "./habits.css";
 import HabitCard from "../../components/card/habit-card/index.js";
 import Heading from "../../components/heading/index.js";
 
 function Habits() {
   const [habits, setHabits] = useState([]);
   const [name, setName] = useState("");
-  const [frequency, setFrequency] = useState("daily");
+  const [frequency, setFrequency] = useState("Daily");
   const [category, setCategory] = useState("Uncategorized");
   const navigate = useNavigate();
 
   const fetchHabits = useCallback(async () => {
     try {
-      const habitsData = await getHabits();
-      setHabits(habitsData);
+      const response = await getHabits();
+      setHabits(response.data);
     } catch (error) {
       if (error?.message?.includes("401") || error?.message?.includes("403")) {
         toast.error("Please log in to view habits");
@@ -38,7 +37,7 @@ function Habits() {
   const handleCreateHabit = async (e) => {
     e.preventDefault();
     try {
-      await createHabit(name, frequency, category);
+      await createHabit({name, frequency, category});
       setName("");
       fetchHabits();
       toast.success("Habit created successfully!");

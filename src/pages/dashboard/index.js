@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getDashboardData } from "../../services/dashboard-service.js";
 import StatsCard from "../../components/card/stats-card/index.js";
-import "./dashboard.css";
 import LineChart from "../../components/charts/line-chart/index.js";
 import BarChart from "../../components/charts/bar-chart/index.js";
 import Heading from "../../components/heading/index.js";
@@ -14,8 +13,8 @@ function Dashboard() {
 
   const fetchDashboardData = useCallback(async () => {
     try {
-      const data = await getDashboardData();
-      setDashboardData(data.data);
+      const response = await getDashboardData();
+      setDashboardData(response.data);
     } catch (error) {
       if (error?.message?.includes("401") || error?.message?.includes("403")) {
         toast.error("Please log in to view dashboard");
@@ -40,7 +39,7 @@ function Dashboard() {
           <StatsCard title="Total Habits" value={dashboardData.total_habits} />
           <StatsCard
             title="Completion Rate"
-            value={`${dashboardData.completion_rate.toFixed(1)}%`}
+            value={`${(dashboardData.completion_rate || 0)}%`}
           />
           <StatsCard
             title="Total Completions"
@@ -127,13 +126,15 @@ function Dashboard() {
         <p>
           Top Category:{" "}
           <span>
-            {
-              Object.entries(dashboardData.category_performance).reduce(
-                (a, b) => (a[1] > b[1] ? a : b)
-              )[0]
-            }
+            {dashboardData.category_performance &&
+            Object.keys(dashboardData.category_performance).length > 0
+              ? Object.entries(dashboardData.category_performance).reduce(
+                  (a, b) => (a[1] > b[1] ? a : b)
+                )[0]
+              : "N/A"}
           </span>
         </p>
+
         <p>
           Suggestion: Focus on <span>{dashboardData.suggested_habit}</span>
         </p>

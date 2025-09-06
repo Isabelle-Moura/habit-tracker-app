@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import "./auth.css"; 
-import { login } from "../../services/auth-service.js";
-import BaseForm from "../../components/form/index.js";
+import { login } from "../../../services/auth-service.js";
+import BaseForm from "../../../components/form/index.js";
 
 function Login() {
   const [email, setEmail] = useState("");
