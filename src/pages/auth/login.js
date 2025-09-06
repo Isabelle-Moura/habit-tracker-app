@@ -14,7 +14,7 @@ function Login() {
     e.preventDefault();
     try {
       const response = await login({ email, password });
-      localStorage.setItem("token", response.token);
+      localStorage.setItem("token", response.data.token);
       toast.success("Login made successfully!");
       navigate("/dashboard");
     } catch (error) {
