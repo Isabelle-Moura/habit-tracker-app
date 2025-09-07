@@ -1,660 +1,206 @@
-/* =========================================================
-   THEME (Design Tokens)
-   ========================================================= */
+/* =======================
+   🎨 DESIGN TOKENS
+   ======================= */
 :root {
-  /* Colors */
-  --red-primary: #d31c29;
-  --red-hover: #931720;
-  --green-primary: #34c759;
-  --green-hover: #45c565;
-  --orange-primary: #e56e27;
-  --orange-hover: #8e4318;
-  --yellow-primary: #fce401;
-  --yellow-hover: #d3c018;
-  --blue-primary: #00bfe3;
-  --blue-hover: #139eb9;
-  --aqua-primary: #04b8b1;
-  --aqua-hover: #149b97;
-  --white: #f2f2f2;
-  --black: #141414;
+  /* Main Colors */
+  --green-primary: #4caf50;
+  --green-hover: #45a049;
+  --blue-primary: #2196f3;
+  --blue-hover: #1e88e5;
+  --red-primary: #f44336;
+  --red-hover: #e53935;
 
-  /* Backgrounds & Shadows */
-  --background-default: #e3dbdb;
-  --background-light: #f4f4f4;
-  --background-dark: #474545;
+  /* Basic Colors */
+  --white: #ffffff;
+  --black: #000000;
+  --gray-100: #f5f5f5;
+  --gray-300: #e0e0e0;
+  --gray-600: #757575;
+
+  /* Others */
   --shadow-color: rgba(0, 0, 0, 0.1);
 
-  /* Fonts */
-  --font-xsm: 14px;
-  --font-sm: 16px;
-  --font-md: 20px;
-  --font-lg: 24px;
-  --font-lrg: 29px;
-  --font-xl: 32px;
-  --font-xxl: 48px;
-
-  /* Font Weights */
-  --weight-light: 100;
-  --weight-regular: 200;
-  --weight-middle: 300;
-  --weight-medium: 400;
-  --weight-bold: 600;
-  --weight-midBold: 700;
-  --weight-extraBold: 800;
+  /* Typography */
+  --font-sm: 14px;
+  --font-base: 16px;
+  --font-lg: 18px;
+  --font-xl: 22px;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
 }
 
-* {
-  font-family: "Montserrat", sans-serif;
+/* =======================
+     🔹 UTILS
+     ======================= */
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid {
+  display: grid;
+}
+.gap-sm {
+  gap: 8px;
+}
+.gap-md {
+  gap: 16px;
+}
+.gap-lg {
+  gap: 24px;
 }
 
-/* =========================================================
-     RESET & GLOBALS
-     ========================================================= */
-body {
-  margin: 0;
-  padding: 0;
-  background: var(--background-default);
-  color: var(--text-dark, --black);
+.rounded {
+  border-radius: 8px;
+}
+.rounded-lg {
+  border-radius: 15px;
+}
+.shadow {
+  box-shadow: 0 4px 10px var(--shadow-color);
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.text-center {
+  text-align: center;
+}
+.text-lg {
+  font-size: var(--font-lg);
+}
+.text-xl {
+  font-size: var(--font-xl);
+}
+.text-bold {
+  font-weight: var(--weight-bold);
+}
+.text-muted {
+  color: var(--gray-600);
 }
 
-button {
-  border: none;
-  border-radius: 5px;
-}
+/* =======================
+     🔹 COMPONENTS
+     ======================= */
 
-input,
-select,
-button {
-  cursor: pointer;
-  padding: 10px;
-  font-size: var(--font-sm);
-  outline: none;
-  transition: border-color 0.3s ease;
-  border-radius: 10px;
-}
-
-/* =========================================================
-     COMPONENT'S STYLES
-     ========================================================= */
-.input {
-}
-
-/* Button */
+/* 👉 Buttons */
 .button {
-  padding: 8px 16px;
-  font-size: 1rem;
-  color: var(--white);
+  padding: 10px 18px;
+  font-size: var(--font-sm);
+  font-weight: var(--weight-medium);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+  border: none;
+}
+
+.button:hover {
+  transform: translateY(-1px);
 }
 
 .button-primary {
-  background-color: var(--green-primary);
+  background: var(--green-primary);
+  color: var(--white);
 }
-
 .button-primary:hover {
-  background-color: var(--green-hover);
-}
-
-.button-secondary {
-  background-color: var(--blue-primary);
-}
-
-.button-secondary:hover {
-  background-color: var(--blue-hover);
+  background: var(--green-hover);
 }
 
 .button-danger {
-  background-color: var(--red-primary);
+  background: var(--red-primary);
+  color: var(--white);
 }
-
 .button-danger:hover {
-  background-color: var(--red-hover);
+  background: var(--red-hover);
 }
 
-.button-link {
-  background: none;
-  color: var(--orange-primary);
-  text-decoration: none;
+.button-outline {
+  background: transparent;
+  border: 2px solid var(--blue-primary);
+  color: var(--blue-primary);
+}
+.button-outline:hover {
+  background: var(--blue-hover);
+  color: var(--white);
 }
 
-.button-link:hover {
-  text-decoration: dotted;
-}
-
-/* ////////////////////////////////////////////// */
-
-.form {
-  background: var(--white);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px var(--shadow-color);
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
+/* 👉 Card */
 .card {
-}
-.heading {
-}
-.select {
+  background: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  padding: 20px;
 }
 
-/* =========================================================
-     AUTH SECTION
-     ========================================================= */
-.container {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  background: var(--background-light);
-  min-height: 100vh;
+.card-header {
+  font-size: var(--font-lg);
+  font-weight: var(--weight-bold);
+  margin-bottom: 12px;
+  color: var(--black);
+}
+
+/* 👉 Forms */
+.form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 16px;
 }
 
-/* Parei aqui 🖐 - Estou melhorando o layout */
-.auth-link a {
-  color: var(--orange-primary);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.auth-link a:hover {
-  color: var(--orange-hover);
-  text-decoration: underline;
-}
-
-/* =========================================================
-     DASHBOARD SECTION
-     ========================================================= */
-.dashboard-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  background: var(--background-light);
-  min-height: 100vh;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-/* Header */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
-}
-
-.header h1 {
-  color: var(--purple-primary);
-  font-size: 2.5rem;
-  font-weight: 700;
-}
-
-.header div {
-  display: flex;
-  gap: 10px;
-}
-
-.toggle-btn {
-  background: var(--purple-light);
-  color: var(--white);
-  padding: 8px 16px;
-  border-radius: 25px;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-}
-
-.toggle-btn:hover {
-  background: var(--purple-primary);
-}
-
-.logout-btn {
-  background: var(--orange-primary);
-  color: var(--white);
-  padding: 8px 16px;
-  border-radius: 25px;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-}
-
-.logout-btn:hover {
-  background: var(--orange-hover);
-}
-
-/* Overview */
-.overview {
-  background: var(--white);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px var(--shadow-color);
-  margin-bottom: 30px;
-}
-
-.overview h2 {
-  color: var(--purple-primary);
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.stat-card {
-  text-align: center;
-}
-
-.stat-card p {
-  color: var(--text-dark);
-  font-size: 1.1rem;
-}
-
-.stat-card span {
-  color: var(--green-primary);
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-/* Pending Habits */
-.pending-habits {
-  background: var(--white);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px var(--shadow-color);
-  margin-bottom: 30px;
-}
-
-.pending-habits h2 {
-  color: var(--purple-primary);
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-.pending-habits li {
-  color: var(--text-dark);
-  font-size: 1.1rem;
-  padding: 10px;
-  border-bottom: 1px solid var(--purple-light);
-}
-
-/* Performance */
-.performance {
-  background: var(--white);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px var(--shadow-color);
-  margin-bottom: 30px;
-}
-
-.performance h2 {
-  color: var(--purple-primary);
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-.performance-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-}
-
-.habit-card {
-  padding: 15px;
-  background: var(--background-light);
-  border-radius: 10px;
-  text-align: center;
-}
-
-.habit-card p {
-  color: var(--text-dark);
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-}
-
-.stars {
-  color: var(--orange-primary);
-  font-size: 1.2rem;
-}
-
-.performance > p {
-  margin-top: 15px;
-  color: var(--text-dark);
-}
-
-.performance > p span {
-  color: var(--green-primary);
-  font-weight: 600;
-}
-
-/* Charts */
-.charts {
-  background: var(--white);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px var(--shadow-color);
-  margin-bottom: 30px;
-}
-
-.charts h2 {
-  color: var(--purple-primary);
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.chart-container {
-  margin-bottom: 30px;
-}
-
-.chart-container h3 {
-  color: var(--text-dark);
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-}
-
-/* Insights */
-.insights {
-  background: var(--white);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px var(--shadow-color);
-  margin-bottom: 30px;
-}
-
-.insights h2 {
-  color: var(--purple-primary);
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-.insights p {
-  color: var(--text-dark);
-  font-size: 1.1rem;
-  margin: 10px 0;
-}
-
-.insights span {
-  color: var(--green-primary);
-  font-weight: 600;
-}
-
-.add-habit-btn {
-  background: var(--green-primary);
-  color: var(--white);
-  padding: 12px 24px;
-  border-radius: 25px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  transition: background 0.3s ease;
-  display: block;
-  margin: 0 auto;
-}
-
-.add-habit-btn:hover {
-  background: var(--green-hover);
-}
-
-/* =========================================================
-     HABITS SECTION
-     ========================================================= */
-.habits-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  background: var(--background-light);
-  min-height: 100vh;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-/* Badges Section */
-.badges-section {
-  background: var(--white);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px var(--shadow-color);
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.badges-section h3 {
-  color: var(--purple-primary);
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-.badges-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-}
-
-.badges-list li {
-  background: var(--green-primary);
-  color: var(--white);
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 1rem;
-}
-
-/* Create Habit Form */
-.create-habit form {
-  background: var(--white);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px var(--shadow-color);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.input-group {
-  display: flex;
-  gap: 10px;
-}
-
-input,
-select {
-  flex: 1;
+.input {
   padding: 12px;
-  border: 2px solid var(--purple-light);
-  border-radius: 10px;
-  font-size: 1rem;
+  border: 2px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: var(--font-base);
+  transition: border 0.2s ease;
+}
+
+.input:focus {
+  border-color: var(--blue-primary);
   outline: none;
-  transition: border-color 0.3s ease;
 }
 
-input:focus,
-select:focus {
-  border-color: var(--purple-primary);
+/* 👉 Badge (tags, status, categories) */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: var(--font-sm);
+  font-weight: var(--weight-medium);
 }
 
-.create-btn {
+.badge-success {
   background: var(--green-primary);
   color: var(--white);
-  padding: 12px;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: background 0.3s ease;
+}
+.badge-danger {
+  background: var(--red-primary);
+  color: var(--white);
+}
+.badge-info {
+  background: var(--blue-primary);
+  color: var(--white);
 }
 
-.create-btn:hover {
-  background: var(--green-hover);
-}
-
-/* Habits List */
-.habits-list h2 {
-  color: var(--purple-primary);
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.no-habits {
-  text-align: center;
-  color: var(--text-dark);
-  font-size: 1.2rem;
-  opacity: 0.7;
-}
-
-.habit-item {
+/* 👉 Navbar/Header */
+.navbar {
   background: var(--white);
   padding: 15px 20px;
-  margin-bottom: 15px;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px var(--shadow-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: transform 0.2s ease;
+  box-shadow: 0 2px 10px var(--shadow-color);
 }
 
-.habit-item:hover {
-  transform: translateY(-2px);
-}
-
-.habit-info {
-  color: var(--text-dark);
-  font-size: 1.1rem;
-}
-
-.frequency {
-  color: var(--purple-light);
-  font-weight: 500;
-}
-
-.category {
-  color: var(--orange-primary);
-  font-weight: 500;
-  margin-left: 5px;
-}
-
-.completed-count {
-  color: var(--green-primary);
-  font-weight: 600;
-}
-
-.complete-btn {
-  background: var(--orange-primary);
-  color: var(--white);
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-}
-
-.complete-btn:hover {
-  background: var(--orange-hover);
-}
-
-/* =========================================================
-     MODAL
-     ========================================================= */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+/* 👉 Modal */
 .modal {
   background: var(--white);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px var(--shadow-color);
-  width: 400px;
-  max-width: 90%;
-}
-
-.modal h3 {
-  color: var(--purple-primary);
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.modal form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.modal input,
-.modal select {
-  padding: 12px;
-  border: 2px solid var(--purple-light);
-  border-radius: 10px;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-.modal input:focus,
-.modal select:focus {
-  border-color: var(--purple-primary);
-}
-
-.modal-buttons {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-
-.cancel-btn {
-  background: var(--orange-primary);
-  color: var(--white);
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-}
-
-.cancel-btn:hover {
-  background: var(--orange-hover);
-}
-
-/* =========================================================
-     DARK MODE OVERRIDES
-     ========================================================= */
-.dashboard-container.dark-mode,
-.habits-container.dark-mode {
-  background: var(--dark-background, #1c1c1c);
-  color: var(--dark-text, #f4f4f4);
-}
-
-.dark-mode .overview,
-.dark-mode .pending-habits,
-.dark-mode .performance,
-.dark-mode .charts,
-.dark-mode .insights,
-.dark-mode .badges-section,
-.dark-mode .create-habit form,
-.dark-mode .habit-item,
-.dark-mode .modal {
-  background: var(--dark-white, #2a2a2a);
-}
-
-.dark-mode .stat-card p,
-.dark-mode .pending-habits li,
-.dark-mode .habit-info,
-.dark-mode .performance > p,
-.dark-mode .chart-container h3,
-.dark-mode .insights p {
-  color: var(--dark-text, #e0e0e0);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 6px 20px var(--shadow-color);
+  max-width: 500px;
+  margin: auto;
 }
