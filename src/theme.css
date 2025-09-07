@@ -3,17 +3,25 @@
    ========================================================= */
 :root {
   /* Colors */
-  --purple-primary: #6b48ff;
-  --purple-light: #a68bff;
+  --red-primary: #d31c29;
+  --red-hover: #931720;
   --green-primary: #34c759;
-  --green-hover: #7ed957;
-  --orange-primary: #ff9500;
-  --orange-light: #ffb347;
-  --blue-detail: #007bff;
-  --blue-hover: #0056b3;
+  --green-hover: #45c565;
+  --orange-primary: #e56e27;
+  --orange-hover: #8e4318;
+  --yellow-primary: #fce401;
+  --yellow-hover: #d3c018;
+  --blue-primary: #00bfe3;
+  --blue-hover: #139eb9;
+  --aqua-primary: #04b8b1;
+  --aqua-hover: #149b97;
+  --white: #f2f2f2;
+  --black: #141414;
 
   /* Backgrounds & Shadows */
+  --background-default: #e3dbdb;
   --background-light: #f4f4f4;
+  --background-dark: #474545;
   --shadow-color: rgba(0, 0, 0, 0.1);
 
   /* Fonts */
@@ -45,14 +53,8 @@
 body {
   margin: 0;
   padding: 0;
-  background: var(--background-light);
-  color: var(--text-dark, #333);
-}
-
-h1,
-h2 {
-  text-align: center;
-  color: var(--purple-primary);
+  background: var(--background-default);
+  color: var(--text-dark, --black);
 }
 
 ul {
@@ -63,23 +65,92 @@ ul {
 
 button {
   border: none;
-  cursor: pointer;
   border-radius: 5px;
-  font-size: var(--font-sm);
 }
 
 input,
 select,
 button {
+  cursor: pointer;
   padding: 10px;
   font-size: var(--font-sm);
+  outline: none;
+  transition: border-color 0.3s ease;
+  border-radius: 10px;
+}
+
+/* =========================================================
+     COMPONENT'S STYLES
+     ========================================================= */
+.input {
+}
+
+/* Button */
+.button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  color: var(--white);
+}
+
+.button-primary {
+  background-color: var(--green-primary);
+}
+
+.button-primary:hover {
+  background-color: var(--green-hover);
+}
+
+.button-secondary {
+  background-color: var(--blue-primary);
+}
+
+.button-secondary:hover {
+  background-color: var(--blue-hover);
+}
+
+.button-danger {
+  background-color: var(--red-primary);
+}
+
+.button-danger:hover {
+  background-color: var(--red-hover);
+}
+
+.button-link {
+  background: none;
+  color: var(--orange-primary);
+  text-decoration: none;
+}
+
+.button-link:hover {
+  text-decoration: dotted;
+}
+
+/* ////////////////////////////////////////////// */
+
+.form {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+}
+.heading {
+}
+.select {
 }
 
 /* =========================================================
      AUTH SECTION
      ========================================================= */
-.auth-container {
-  max-width: 400px;
+.container {
+  max-width: 500px;
   margin: 0 auto;
   padding: 40px 20px;
   background: var(--background-light);
@@ -90,61 +161,7 @@ button {
   align-items: center;
 }
 
-.auth-container h2 {
-  color: var(--purple-primary);
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.auth-form {
-  background: var(--white);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px var(--shadow-color);
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.auth-form input {
-  padding: 12px;
-  border: 2px solid var(--purple-light);
-  border-radius: 10px;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-.auth-form input:focus {
-  border-color: var(--purple-primary);
-}
-
-.auth-btn {
-  background: var(--green-primary);
-  color: var(--white);
-  border: none;
-  padding: 12px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: background 0.3s ease;
-}
-
-.auth-btn:hover {
-  background: var(--green-hover);
-}
-
-.auth-link {
-  margin-top: 20px;
-  text-align: center;
-  color: var(--text-dark);
-  font-size: 1rem;
-}
-
+/* Parei aqui 🖐 - Estou melhorando o layout */
 .auth-link a {
   color: var(--orange-primary);
   text-decoration: none;

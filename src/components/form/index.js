@@ -13,9 +13,9 @@ function BaseForm({
   linkLabel,
 }) {
   return (
-    <div className="auth-container">
+    <div className="container">
       <Heading level={2}>{title}</Heading>
-      <form onSubmit={onSubmit} className="auth-form">
+      <form onSubmit={onSubmit} className="form">
         {fields.map((field, index) => (
           <Input
             key={index}
@@ -30,9 +30,7 @@ function BaseForm({
           {submitLabel}
         </Button>
       </form>
-      <p className="auth-link">
-        {linkText} <a href={linkHref}>{linkLabel}</a>
-      </p>
+      <Button variant="link" href={linkHref}>{linkLabel}</Button>
     </div>
   );
 }
