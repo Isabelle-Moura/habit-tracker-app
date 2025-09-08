@@ -23,10 +23,11 @@ function Login() {
 
   return (
     <BaseForm
-      title="Login"
+      title="Welcome Back!"
+      subtitle="Sign in to access your personalized habit tracking experience."
       fields={[
-        { type: "email", placeholder: "Enter your email", value: email, onChange: setEmail },
-        { type: "password", placeholder: "Enter your password", value: password, onChange: setPassword },
+        { type: "email", label: "E-mail", placeholder: "Enter your email", value: email, onChange: setEmail },
+        { type: "password", label: "Password", placeholder: "Enter your password", value: password, onChange: setPassword },
       ]}
       onSubmit={handleLogin}
       submitLabel="Login"

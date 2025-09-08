@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
-import "./layout.css";
 import Heading from "../heading/index.js";
+import Button from "../button/index.js";
 
 function Layout() {
   const [darkMode, setDarkMode] = useState(false);
@@ -13,19 +13,20 @@ function Layout() {
   };
 
   return (
-    <div className={`app-container ${darkMode ? "dark-mode" : ""}`}>
-      <header className="header">
+    <div>
+      <header>
         <Heading level={1}>Habit Tracker</Heading>
+        <Heading level={3}>Keep up with the good ones!</Heading>
         <div>
-          <button
-            className="toggle-btn"
+          <Button
+            variant="primary"
             onClick={() => setDarkMode(!darkMode)}
           >
             {darkMode ? "☀️ Light" : "🌙 Dark"}
-          </button>
-          <button className="logout-btn" onClick={handleLogout}>
+          </Button>
+          <Button variant="secondary" onClick={handleLogout}>
             Logout
-          </button>
+          </Button>
         </div>
       </header>
 

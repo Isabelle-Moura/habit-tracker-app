@@ -1,8 +1,8 @@
 import React from "react";
 
-function Heading({ level = 1, children, className = "" }) {
+function SubHeading({ level = 1, children, className = "" }) {
   const Tag = `h${level}`;
-  const baseStyle = "text-bold";
+  const baseStyle = "text-medium";
 
   const sizes = {
     1: "text-xl",
@@ -18,4 +18,4 @@ function Heading({ level = 1, children, className = "" }) {
   );
 }
 
-export default Heading;
+export default SubHeading;
