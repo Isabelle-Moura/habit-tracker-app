@@ -1,0 +1,116 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: "class",
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        red: {
+          primary: "#d31c29",
+          hover: "#931720",
+        },
+        green: {
+          primary: "#34c759",
+          hover: "#45c565",
+        },
+        orange: {
+          primary: "#e56e27",
+          hover: "#8e4318",
+        },
+        yellow: {
+          primary: "#fce401",
+          hover: "#d3c018",
+        },
+        blue: {
+          primary: "#00bfe3",
+          hover: "#139eb9",
+        },
+        aqua: {
+          primary: "#04b8b1",
+          hover: "#149b97",
+        },
+        disabled: {
+          bg: "#E2E8F0",    
+          text: "#94A3B8", 
+        },        
+        basic: {
+          white: "#f5f5f5",
+          black: "#212121",
+          grayLight: "#eae7e7",
+          grayMedium: "#e0e0e0",
+          grayStrong: "#757575",
+        },
+        background: {
+          default: "#e3dbdb",
+          loader: "#6b7280",
+          light: "#f4f4f4",
+          dark: "#474545",
+        },
+        shadow: {
+          DEFAULT: "rgba(0, 0, 0, 0.1)",
+        },
+      },
+      spacing: {
+        0: "0px",
+        1: "8px",
+        2: "16px",
+        3: "24px",
+        4: "32px",
+        5: "40px",
+        6: "48px",
+        7: "56px",
+        8: "64px",
+        9: "72px",
+        10: "80px",
+      },
+      padding: {
+        0: "0px",
+        1: "8px",
+        2: "16px",
+        3: "24px",
+        4: "32px",
+        5: "40px",
+        6: "48px",
+        7: "56px",
+        8: "64px",
+        9: "72px",
+        10: "80px",
+      },
+      fontSize: {
+        xs: '12px',     
+        sm: '14px',     
+        base: '16px',   
+        lg: '18px',     
+        xl: '20px',     
+        '2xl': '24px',  
+        '3xl': '30px',  
+        '4xl': '36px',  
+        '5xl': '48px',  
+        '6xl': '60px',  
+      },      
+      fontWeight: {
+        light: '300',
+        normal: '400',
+        medium: '500',
+        semibold: '600',
+        bold: '700',
+        extraBold: '800',
+      },      
+      borderRadius: {
+        none: "0",
+        sm: "4px",
+        DEFAULT: "8px",
+        md: "12px",
+        lg: "16px",
+        xl: "24px",
+        full: "9999px",
+      },
+      boxShadow: {
+        sm: "0 1px 2px rgba(0,0,0,0.05)",
+        md: "0 4px 6px rgba(0,0,0,0.1)",
+        lg: "0 10px 15px rgba(0,0,0,0.15)",
+      },
+    },
+  },
+  plugins: [],
+};

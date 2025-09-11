@@ -2,10 +2,10 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getDashboardData } from "../../services/dashboard-service.js";
-import StatsCard from "../../components/card/stats-card/index.js";
-import LineChart from "../../components/charts/line-chart/index.js";
-import BarChart from "../../components/charts/bar-chart/index.js";
-import Heading from "../../components/heading/index.js";
+import StatsCard from "../../components/composite/card/stats-card/index.js";
+import LineChart from "../../components/composite/charts/line-chart/index.js";
+import BarChart from "../../components/composite/charts/bar-chart/index.js";
+import Heading from "../../components/ui/heading/index.js";
 
 function Dashboard() {
   const [dashboardData, setDashboardData] = useState(null);

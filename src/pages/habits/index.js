@@ -6,8 +6,8 @@ import {
   getHabits,
   markHabitAsCompleted,
 } from "../../services/habit-service.js";
-import HabitCard from "../../components/card/habit-card/index.js";
-import Heading from "../../components/heading/index.js";
+import HabitCard from "../../components/composite/card/habit-card/index.js";
+import Heading from "../../components/ui/heading/index.js";
 
 function Habits() {
   const [habits, setHabits] = useState([]);
