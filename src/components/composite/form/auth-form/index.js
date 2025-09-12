@@ -16,14 +16,15 @@ function AuthForm({ isSignIn = false }) {
 
   return (
     <Container
+      semanticTag="section"
       flex
-      flexCol
+      direction="col"
       gap="gap-4"
       padding="p-5"
       className="bg-background-light rounded-md"
     >
       {/* Heading */}
-      <section className="w-full flex flex-col gap-1 my-1">
+      <Container semanticTag="section" flex direction="col" gap="gap-1">
         <Heading level={1}>
           {isSignIn ? "Welcome Back!" : "Join Habit Tracker Today!"}
         </Heading>
@@ -32,83 +33,102 @@ function AuthForm({ isSignIn = false }) {
             ? "Sign in to access your personalized habit tracking experience."
             : "Start your habit journey with Habit Tracker. It's quick, easy and free."}
         </Heading>
-      </section>
+      </Container>
 
       {/* Inputs */}
-      <Input
-        label="E-mail"
-        type="email"
-        placeholder={isSignIn ? "Enter your e-mail" : "Enter your best e-mail"}
-        value={email}
-        onChange={setEmail}
-        icon={IoMdMail}
-      />
 
-      <Input
-        label="Password"
-        type="password"
-        placeholder={isSignIn ? "Enter your password" : "Choose your password"}
-        value={password}
-        onChange={setPassword}
-        icon={FaLock}
-      />
+      <Container semanticTag="section" flex direction="col" gap="gap-1">
+        <Input
+          label="E-mail"
+          type="email"
+          placeholder={
+            isSignIn ? "Enter your e-mail" : "Enter your best e-mail"
+          }
+          value={email}
+          onChange={setEmail}
+          icon={IoMdMail}
+        />
+
+        <Input
+          label="Password"
+          type="password"
+          placeholder={
+            isSignIn ? "Enter your password" : "Choose your password"
+          }
+          value={password}
+          onChange={setPassword}
+          icon={FaLock}
+        />
+      </Container>
 
       {/* Checkbox / Remember me / Terms */}
-      <section>
-        <Container flex center gap="gap-1">
-          <Checkbox
-            checked={remember}
-            onChange={() => setRemember(!remember)}
-          />
-          {isSignIn ? (
-            <div className="flex justify-between items-center gap-10">
-              <span>Remember me</span>
-              <a
-                href="#"
-                className="text-red-primary hover:text-red-hover text-md"
-              >
-                Forgot password?
-              </a>
-            </div>
-          ) : (
-            <div>
-              I agree to Habit Tracker{" "}
-              <span className="text-red-primary hover:text-red-hover">
-                Terms & Condition.
-              </span>
-            </div>
-          )}
-        </Container>
-      </section>
 
-      {/* Already have account / Sign up link */}
-      <section>
-        <Container flex center gap="gap-1">
+      <Container
+        semanticTag="section"
+        flex
+        align="center"
+        justify="center"
+        gap="gap-1"
+      >
+        <Checkbox checked={remember} onChange={() => setRemember(!remember)} />
+        {isSignIn ? (
+          <div className="flex justify-between items-center gap-10">
+            <span>Remember me</span>
+            <a
+              href="#"
+              className="text-red-primary hover:text-red-hover text-md"
+            >
+              Forgot password?
+            </a>
+          </div>
+        ) : (
           <div>
-            {isSignIn ? "Don't have an account? " : "Already have an account? "}
-            <span className="text-orange-primary hover:text-orange-hover cursor-pointer">
-              {isSignIn ? "Sign Up" : "Sign in"}
+            I agree to Habit Tracker{" "}
+            <span className="text-red-primary hover:text-red-hover cursor-pointer">
+              Terms & Condition.
             </span>
           </div>
-        </Container>
-      </section>
+        )}
+      </Container>
+
+      {/* Already have account / Sign up link */}
+
+      <Container
+        semanticTag="section"
+        flex
+        align="center"
+        justify="center"
+        gap="gap-1"
+      >
+        <div>
+          {isSignIn ? "Don't have an account? " : "Already have an account? "}
+          <span className="text-orange-primary hover:text-orange-hover cursor-pointer">
+            {isSignIn ? "Sign Up" : "Sign in"}
+          </span>
+        </div>
+      </Container>
 
       {/* Divider */}
-      <section>
-        <Divider text="or" />
-      </section>
+
+      <Divider text="or" />
 
       {/* Buttons */}
-      <section>
-        <Container flex flexCol center gap="gap-1">
-          <Button
-            label="Continue with Google"
-            variant="outline"
-            iconLeft={FcGoogle}
-          />
-          <Button label={isSignIn ? "Sign In" : "Sign Up"} />
-        </Container>
-      </section>
+
+      <Container
+        semanticTag="section"
+        flex
+        direction="col"
+        align="center"
+        justify="center"
+        gap="gap-1"
+      >
+        <Button
+          label="Continue with Google"
+          variant="outline"
+          iconLeft={FcGoogle}
+        />
+        <Button label={isSignIn ? "Sign In" : "Sign Up"} />
+      </Container>
     </Container>
   );
 }

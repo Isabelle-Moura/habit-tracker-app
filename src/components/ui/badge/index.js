@@ -1,18 +1,9 @@
 import clsx from "clsx";
 
-function Badge({
-  children,
-  isRounded = false,
-  variant = "blue",
-  iconLeft,
-  iconRight,
-  iconSize = 18,
-  iconColor = "#141414",
-  className,
-}) {
+function Badge({ children, isRounded = false, variant = "blue", className }) {
   const base = `w-[450px] inline-flex items-center justify-center ${
     isRounded ? "rounded-full" : "rounded-md"
-  } px-4 py-1 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed`;
+  } px-3 py-[6px] text-sm font-medium cursor-pointer`;
 
   const variants = {
     blue: "bg-blue-primary text-basic-white hover:bg-blue-hover",

@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { getDashboardData } from "../../services/dashboard-service.js";
-import StatsCard from "../../components/composite/card/stats-card/index.js";
-import LineChart from "../../components/composite/charts/line-chart/index.js";
-import BarChart from "../../components/composite/charts/bar-chart/index.js";
+import React from "react";
 import Heading from "../../components/ui/heading/index.js";
-import Logo from "../../assets/images/logo.png";
 import Icon from "../../components/ui/icon/index.js";
-import { FaUserCircle } from "react-icons/fa";
-import Container from "../../components/ui/container/index.js";
+import Grid from "../../components/ui/grid/index.js";
 import SideMenu from "../../components/composite/side-bar/index.js";
 import { PiUserCircleDuotone } from "react-icons/pi";
 import Button from "../../components/ui/button/index.js";
 import Badge from "../../components/ui/badge/index.js";
 import { GoPlus } from "react-icons/go";
+import Card from "../../components/ui/card/index.js";
+import {
+  FcAlarmClock,
+  FcBriefcase,
+  FcLike,
+  FcRuler,
+  FcMediumPriority,
+} from "react-icons/fc";
 
 function Home() {
   // const [dashboardData, setDashboardData] = useState(null);
@@ -68,7 +68,7 @@ function Home() {
           </header>
 
           {/* Conteúdo da página */}
-          <main className="p-2">
+          <main className="p-2 flex flex-col gap-2">
             <section className="flex flex-col gap-2">
               <section className="flex items-center justify-between !max-w-[100px] gap-[2px]">
                 <Badge variant="orange">Today</Badge>
@@ -77,7 +77,7 @@ function Home() {
                 <Badge variant="neutral">Overall</Badge>
               </section>
 
-              <section className="flex items-center justify-between !max-w-[100px] gap-[6px]">
+              <section className="flex items-center justify-between !max-w-[100px] gap-[6px] mb-3">
                 <Badge variant="aqua" isRounded>
                   All
                 </Badge>
@@ -92,8 +92,46 @@ function Home() {
                 </Badge>
               </section>
             </section>
-            {/* Aqui entram seus gráficos, cards etc */}
-            <p>Conteúdo do dashboard...</p>
+
+            <Grid cols={2}>
+              <Card
+                icon={FcAlarmClock}
+                title="Wake up before 8 am"
+                bgColor="greenSoft"
+              />
+              <Card
+                icon={FcBriefcase}
+                title="Work for, at least, 6 hours"
+                bgColor="pinkSoft"
+              />
+              <Card
+                icon={FcRuler}
+                title="Practice Drawing"
+                bgColor="blueSoft"
+              />
+              <Card
+                icon={FcLike}
+                title={`Read "The Bible"`}
+                bgColor="orangeLight"
+              />
+            </Grid>
+
+            <Heading
+              level={6}
+              withLine
+              linePosition="right"
+              className="text-basic-grayStrong"
+            >
+              Completed
+            </Heading>
+            <Grid cols={2}>
+              <Card
+                icon={FcMediumPriority}
+                title="Note tasks at breakfast"
+                bgColor="redLight"
+                checked
+              />
+            </Grid>
           </main>
         </div>
       </section>

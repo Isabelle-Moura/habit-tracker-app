@@ -11,7 +11,7 @@ module.exports = {
         },
         green: {
           primary: "#34c759",
-          hover: "#45c565",
+          hover: "#23873c",
         },
         orange: {
           primary: "#e56e27",
@@ -47,6 +47,7 @@ module.exports = {
           dark: "#474545",
         },
         candyColors: {
+          white: "#f5f5f5",
           yellowLight: "#ffffcc",
           orangeLight: "#ffcc99",
           brownGray: "#aa9499",

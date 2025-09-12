@@ -2,37 +2,54 @@ import clsx from "clsx";
 
 function Container({
   children,
-  flex,
-  flexCol,
-  center,      
+  flex = false,
+  direction = "row", // row | col
+  align = "start", // start | center | end | stretch
+  justify = "start", // start | center | end | between | around | evenly
+  wrap = false,
   margin,
-  gap,
   padding,
-  responsive,  
+  gap,
+  responsive,
   className,
-  spaceBetween,
+  semanticTag = "div", // default is <div>
 }) {
-  return (
-    <div
-      className={clsx(
-        "m-auto w-full max-w-7xl",
-        "px-4", 
-        flex && "flex",
-        flexCol && "flex-col",
-        center && "items-center justify-center",
-        spaceBetween && "justify-between",
-        margin,
-        gap,
-        padding,
-        responsive && Object.entries(responsive).map(
-          ([bp, val]) => `${bp}:${val}`
-        ),
-        className
-      )}
-    >
-      {children}
-    </div>
+  const semanticTags = {
+    div: "div",
+    section: "section",
+    main: "main",
+    header: "header",
+    footer: "footer",
+    article: "article",
+    aside: "aside",
+    nav: "nav",
+  };
+
+  const Tag = semanticTags[semanticTag] || "div";
+
+  const base = clsx(
+    "m-auto w-full max-w-7xl",
+
+    flex && "flex",
+    flex && `flex-${direction}`,
+    flex && `items-${align}`,
+    flex && {
+      "justify-start": justify === "start",
+      "justify-center": justify === "center",
+      "justify-end": justify === "end",
+      "justify-between": justify === "between",
+      "justify-around": justify === "around",
+      "justify-evenly": justify === "evenly",
+    },
+    wrap && "flex-wrap",
+    margin,
+    padding,
+    gap,
+    responsive && Object.entries(responsive).map(([bp, val]) => `${bp}:${val}`),
+    className
   );
+
+  return <Tag className={base}>{children}</Tag>;
 }
 
 export default Container;

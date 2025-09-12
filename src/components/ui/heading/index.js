@@ -1,6 +1,14 @@
-import React from "react";
+import clsx from "clsx";
 
-function Heading({ level = 1, weight = "bold", children, className = "text-basic-black" }) {
+function Heading({
+  level = 1,
+  weight = "bold",
+  children,
+  className = "text-basic-black",
+  withLine = false,
+  linePosition = "right", // left | right | full
+  lineClassName = "border-gray-300",
+}) {
   const Tag = `h${level}`;
 
   const sizes = {
@@ -20,10 +28,35 @@ function Heading({ level = 1, weight = "bold", children, className = "text-basic
     bold: "font-bold",
   };
 
+  if (!withLine) {
+    return (
+      <Tag className={clsx(sizes[level], weights[weight], className)}>
+        {children}
+      </Tag>
+    );
+  }
+
   return (
-    <Tag className={`${sizes[level]} ${weights[weight]} ${className}`}>
-      {children}
-    </Tag>
+    <div className="flex items-center w-full">
+      {(linePosition === "left" || linePosition === "full") && (
+        <div className={clsx("flex-grow border-t", lineClassName)} />
+      )}
+
+      <Tag
+        className={clsx(
+          sizes[level],
+          weights[weight],
+          className,
+          "mx-2 whitespace-nowrap"
+        )}
+      >
+        {children}
+      </Tag>
+
+      {(linePosition === "right" || linePosition === "full") && (
+        <div className={clsx("flex-grow border-t", lineClassName)} />
+      )}
+    </div>
   );
 }
 
