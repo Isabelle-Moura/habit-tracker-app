@@ -8,7 +8,7 @@ import SignUp from "./pages/auth/sign-up/index.js";
 import SignIn from "./pages/auth/sign-in/index.js";
 
 // Main app pages
-import Dashboard from "./pages/dashboard/index.js";
+import Home from "./pages/home/index.js";
 import Habit from "./pages/habit/index.js";
 import Habits from "./pages/habits/index.js";
 import MoodStat from "./pages/mood-stat/index.js";
@@ -38,8 +38,8 @@ function App() {
 
         {/* Layout wrapper (navbar, sidebar, header) for authenticated pages */}
         <Route element={<MainLayout />}>
-          {/* Main dashboard with quick stats and progress overview */}
-          <Route path="/dashboard" element={<Dashboard />} />
+          {/* Main home with quick stats and progress overview */}
+          <Route path="/home" element={<Home />} />
 
           {/* Habits page → list of habits, mark as done, edit or delete */}
           <Route path="/habits" element={<Habits />} />
