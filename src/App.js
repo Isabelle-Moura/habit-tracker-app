@@ -10,6 +10,7 @@ import SignIn from "./pages/auth/sign-in/index.js";
 // Main app pages
 import Home from "./pages/home/index.js";
 import Habit from "./pages/habit/index.js";
+import RegisterHabit from "./pages/register-habit/index.js";
 import Habits from "./pages/habits/index.js";
 import MoodStat from "./pages/mood-stat/index.js";
 import Profile from "./pages/profile/index.js";
@@ -41,17 +42,20 @@ function App() {
           {/* Main home with quick stats and progress overview */}
           <Route path="/home" element={<Home />} />
 
-          {/* Habits page → list of habits, mark as done, edit or delete */}
+          {/* Habits page → list of habits, mark as done. */}
           <Route path="/habits" element={<Habits />} />
+
+          {/* Habit management page → check, edit, or delete a specific habit */}
+          <Route path="/habit" element={<Habit />} />
+
+          {/* Habit register page → create a new habit */}
+          <Route path="/register-habit" element={<RegisterHabit />} />
 
           {/* Reports page → analytics, charts, and history of habits */}
           <Route path="/report" element={<Report />} />
 
           {/* Mood statistics page → track and visualize mood over time */}
           <Route path="/mood-stat" element={<MoodStat />} />
-
-          {/* Habit management page → create, edit, or delete a specific habit */}
-          <Route path="/habit" element={<Habit />} />
 
           {/* User profile page → update personal info, preferences, password, etc. */}
           <Route path="/profile" element={<Profile />} />

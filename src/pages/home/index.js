@@ -8,6 +8,7 @@ import Button from "../../components/ui/button/index.js";
 import Badge from "../../components/ui/badge/index.js";
 import { GoPlus } from "react-icons/go";
 import Card from "../../components/ui/card/index.js";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FcAlarmClock,
   FcBriefcase,
@@ -18,7 +19,7 @@ import {
 
 function Home() {
   // const [dashboardData, setDashboardData] = useState(null);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   // const fetchDashboardData = useCallback(async () => {
   //   try {
@@ -43,9 +44,6 @@ function Home() {
   return (
     <>
       <section className="flex h-screen">
-        {/* Sidebar */}
-        <SideMenu />
-
         {/* Conteúdo principal */}
         <div className="flex-1 flex flex-col">
           {/* Header */}
@@ -58,6 +56,7 @@ function Home() {
                 iconColor="#f5f5f5"
                 iconLeft={GoPlus}
                 size="small"
+                onClick={() => navigate("/register-habit")}
               />
               <Icon
                 component={PiUserCircleDuotone}

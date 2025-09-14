@@ -44,10 +44,10 @@ function SideMenu() {
     };
 
   return (
-    <aside className="h-screen w-66 bg-background-light border-r border-gray-200 flex flex-col p-2">
-      <header className="flex items-center justify-center w-fit gap-2 mb-5 mt-2">
+    <aside className="h-screen w-[25%] bg-background-light border-r border-gray-200 flex flex-col p-2">
+      <header className="flex items-center justify-center gap-2 mb-5 mt-2">
         <img src={Logo} width="40px" alt="Logo" />
-        <Heading level={2}>G04LS 2 R34CH</Heading>
+        <Heading level={3}>G04LS 2 R34CH</Heading>
       </header>
 
       <nav className="flex-1 flex flex-col gap-1">
@@ -90,7 +90,7 @@ function SideMenu() {
       </nav>
 
       {/* Footer */}
-      <div className="p-4 border-t border-gray-200 text-sm text-gray-500">
+      <div className="p-4 text-center border-t border-gray-200 text-sm text-gray-500">
         © 2025 - G04LS 2 R34CH
       </div>
     </aside>
